@@ -49,11 +49,11 @@ namespace SqlFileizer.Data
         public static IEnumerable<Dictionary<string,object>> GetAllStoredProcsFromDB(string connectionString)
         {
             var sql = @"
-                select ROUTINE_SCHEMA [Schema], ROUTINE_NAME [ProcName], ROUTINE_DEFINITION [ProcValue]
+				select ROUTINE_SCHEMA[Schema], ROUTINE_NAME[ProcName], ROUTINE_DEFINITION[ProcValue]
                 from INFORMATION_SCHEMA.ROUTINES
                 where ROUTINE_TYPE = 'PROCEDURE'
-                order by ROUTINE_NAME asc";
-            return GetData(connectionString, sql);
+                order by ROUTINE_NAME asc";            
+			return GetData(connectionString, sql);
         }
 
     }

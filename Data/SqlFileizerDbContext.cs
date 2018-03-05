@@ -8,8 +8,7 @@ namespace SqlFileizer.Data
     {
         public static IEnumerable<Dictionary<string, object>> GetData(string connectionString, string query)
         {
-            using (SqlConnection connection = new SqlConnection(
-                       connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
                 connection.Open();
@@ -49,14 +48,14 @@ namespace SqlFileizer.Data
         /// <param name="connectionString">The connection string for the DB you want to retrieve procs from.</param>
         public static IEnumerable<Dictionary<string,object>> GetAllStoredProcsFromDB(string connectionString)
         {
-            var sql = @"
-                SELECT sch.name as [Schema], OBJECT_NAME(sm.object_id) AS ProcName, sm.definition as ProcValue
-                FROM sys.sql_modules AS sm  
-                    JOIN sys.objects AS o ON sm.object_id = o.object_id
-                    JOIN sys.schemas sch on o.schema_id = sch.schema_id
-                WHERE o.type = 'P'
-                ORDER BY ProcName asc";
-            return GetData(connectionString, sql);
+			var sql = @"
+				SELECT sch.name as [Schema], OBJECT_NAME(sm.object_id) AS ProcName, sm.definition as ProcValue
+				FROM sys.sql_modules AS sm  
+					JOIN sys.objects AS o ON sm.object_id = o.object_id
+					JOIN sys.schemas sch on o.schema_id = sch.schema_id
+				WHERE o.type = 'P'
+				ORDER BY ProcName asc";
+			return GetData(connectionString, sql);
         }
 
     }

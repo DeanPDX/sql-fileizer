@@ -1,0 +1,22 @@
+
+<config>
+    <OutputDirectory>functions</OutputDirectory>
+    <ConnectionString>Server=phpdxweb08\sembitdev;Database=PHPCustom;Trusted_Connection=True;</ConnectionString>
+
+    <!-- Result set is parsed based on column names, not order -->
+    <!-- FileName: name of file without extension -->
+    <!-- FileExtension: do not include the dot -->
+    <!-- FileContent: only handles text output for now (no binary support) -->
+    <!-- HeaderText: to be appended to the beginning of each file -->
+    <!-- FooterText: to be appended to the end of each file -->
+    <SqlQuery>
+		select o.name as FileName,
+			'sql' as FileExtension,
+			definition as FileContent,
+			'if object_id(''' + o.name + ''') is not null drop function ' + o.name as HeaderText,
+			'' as FooterText
+		from sys.sql_modules m
+			join sys.objects o on m.object_id = o.object_id
+		where o.type_desc in ('SQL_SCALAR_FUNCTION', 'SQL_TABLE_VALUED_FUNCTION')
+    </SqlQuery>
+</config>

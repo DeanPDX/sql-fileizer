@@ -50,10 +50,12 @@ namespace SqlFileizer.Data
         public static IEnumerable<Dictionary<string,object>> GetAllStoredProcsFromDB(string connectionString)
         {
             var sql = @"
-                select ROUTINE_SCHEMA [Schema], ROUTINE_NAME [ProcName], ROUTINE_DEFINITION [ProcValue]
-                from INFORMATION_SCHEMA.ROUTINES
-                where ROUTINE_TYPE = 'PROCEDURE'
-                order by ROUTINE_NAME asc";
+                SELECT sch.name as [Schema], OBJECT_NAME(sm.object_id) AS ProcName, sm.definition as ProcValue
+                FROM sys.sql_modules AS sm  
+                    JOIN sys.objects AS o ON sm.object_id = o.object_id
+                    JOIN sys.schemas sch on o.schema_id = sch.schema_id
+                WHERE o.type = 'P'
+                ORDER BY ProcName asc";
             return GetData(connectionString, sql);
         }
 

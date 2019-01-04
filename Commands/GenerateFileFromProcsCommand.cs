@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using SqlFileizer.Data;
 
 namespace SqlFileizer.Commands
@@ -54,7 +55,7 @@ go
                     
             }
             Console.WriteLine();
-            Console.WriteLine("Done!");
+            Console.WriteLine($"{procs.Count()} stored procedures successfully written to {pathToWrite}");
         }
     }
 }

@@ -51,7 +51,7 @@ go
 Where `{0}` is schema name and `{1}` is table name.
 
 ### Generate sample config file to be used for step 4
-The app will create a config file named `config.xml` for you to customize. The default config file will [SampleConfigs/ScriptsFromProcs.xml](generate scripts from stored procedures). See [SampleConfigs](Sample Configs) for more information and additional config files to get you started.
+The app will create a config file named `config.xml` for you to customize. The default config file will [generate scripts from stored procedures](SampleConfigs/ScriptsFromProcs.xml). See [Sample Configs](SampleConfigs) for more information and additional config files to get you started.
 
 ### Generate sql files from results of SQL query specified in config file
 You will be asked for the name of your config file, then the app will generate files based on the SQL specified in the config file.

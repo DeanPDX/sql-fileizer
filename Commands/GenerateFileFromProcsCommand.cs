@@ -21,7 +21,7 @@ go
 
         public char CommandShortcut => '2';
 
-        public string Description => "Generate sql files from stored procs";
+        public string Description => "Interactively generate sql files from stored procs";
 
         public string[] ArgDefinitions => new string[] 
         { 

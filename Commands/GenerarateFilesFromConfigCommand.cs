@@ -75,7 +75,7 @@ namespace SqlFileizer.Commands
 
                     var fileText = new StringBuilder();
                     string header = row["HeaderText"].ToString().Trim();
-                    string content = row["FileContent"].ToString().Trim();
+                    string content = row["BodyText"].ToString().Trim();
                     string footer = row["FooterText"].ToString().Trim();
 
                     if (header.Length > 0)
@@ -96,7 +96,7 @@ namespace SqlFileizer.Commands
                     File.WriteAllText(fileNameWithPath, fileText.ToString());
                 }
 
-                Console.WriteLine("Files successfully written to " + outputDirectory);
+                Console.WriteLine($"{rowNumber} files successfully written to {outputDirectory}");
             }
             catch (Exception ex)
             {

@@ -14,7 +14,7 @@ namespace SqlFileizer
  ____) | |__| | |____  | |    | | |  __/ |/ /  __/ |   
 |_____/ \___\_\______| |_|    |_|_|\___|_/___\___|_|   
 
-Welcome to the SQL Fileizer!
+Welcome to the SQL Fileizer! Press ""q"" to quit.
 ";
         /// <summary>
         /// We are storing our commands in a dictionary for fast indexing later on.
@@ -41,25 +41,23 @@ Welcome to the SQL Fileizer!
             DisplayRepl();
         }
 
+        /// <summary>
+        /// Start our read–eval–print loop (REPL).
+        /// </summary>
         private void DisplayRepl()
         {
+            DisplayAvailableCommands();
             while (true)
             {
-                DisplayAvailableCommands();
                 var key = Console.ReadKey(true);
                 var pressedCharacter = key.KeyChar;
                 if (pressedCharacter == 'q') { return; }
                 else if (_availableCommands.ContainsKey(pressedCharacter))
                 {
                     var commandToExecute = _availableCommands[pressedCharacter];
-
                     var args = PromptUserForArgs(commandToExecute.ArgDefinitions);
                     commandToExecute.Execute(args);
-
-                }
-                else
-                {
-                    Console.WriteLine($"Well, this is awkward. That was not found.");
+                    DisplayAvailableCommands();
                 }
             }
         }
@@ -93,7 +91,7 @@ Welcome to the SQL Fileizer!
                 {
                     Console.Write($"{argDefinitions[i]}: ");
                     var userInput = Console.ReadLine();
-                    if (userInput.Length > 0) 
+                    if (userInput.Length > 0)
                     {
                         args[i] = userInput;
                         break;

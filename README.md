@@ -12,22 +12,25 @@ dotnet run
 ```
 Once you run it, you should be greeted with this:
 ```
-  _____  ____  _        ______ _ _      _              
- / ____|/ __ \| |      |  ____(_) |    (_)             
-| (___ | |  | | |      | |__   _| | ___ _ _______ _ __ 
+  _____  ____  _        ______ _ _      _
+ / ____|/ __ \| |      |  ____(_) |    (_)
+| (___ | |  | | |      | |__   _| | ___ _ _______ _ __
  \___ \| |  | | |      |  __| | | |/ _ \ |_  / _ \ '__|
- ____) | |__| | |____  | |    | | |  __/ |/ /  __/ |   
-|_____/ \___\_\______| |_|    |_|_|\___|_/___\___|_|   
+ ____) | |__| | |____  | |    | | |  __/ |/ /  __/ |
+|_____/ \___\_\______| |_|    |_|_|\___|_/___\___|_|
 
-
-Welcome to the SQL Fileizer!
+Welcome to the SQL Fileizer! Press "q" to quit.
 
 Available commands:
 
 1) Display help text
-2) Interactively generate sql files from stored procs
-3) Generate sample config file to be used for step 4
-4) Generate sql files from results of SQL query specified in config file
+2) Generate sample config file to be used for option 3
+3) Generate sql files from results of SQL query specified in config file
+4) Generate sql files from stored procs (you will be asked for connection string)
+5) Generate sql files from views (you will be asked for connection string)
+6) Generate sql files from functions (you will be asked for connection string)
+7) Generate sql files from triggers (you will be asked for connection string)
+8) Generate sql files from stored procs, functions, views and triggers (you will be asked for connection string)
 ```
 Read on for more information on the various commands.
 ## Commands

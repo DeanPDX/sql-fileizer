@@ -12,8 +12,6 @@ namespace SqlFileizer.Commands
     {
         public string CommandName => "filesFromConfig";
 
-        public char CommandShortcut => '4';
-
         public string Description => "Generate sql files from results of SQL query specified in config file";
 
         public string[] ArgDefinitions => new string[] 

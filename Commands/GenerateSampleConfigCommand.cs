@@ -19,9 +19,7 @@ namespace SqlFileizer.Commands
 
         public string CommandName => "config";
 
-        public char CommandShortcut => '3';
-
-        public string Description => "Generate sample config file to be used for step 4";
+        public string Description => "Generate sample config file to be used for step 3";
 
         public string[] ArgDefinitions => new string[0];
 

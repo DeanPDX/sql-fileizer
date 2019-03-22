@@ -28,7 +28,8 @@ Welcome to the SQL Fileizer!
         public InteractiveUserInterface(List<ICommand> availableCommands)
         {
             _availableCommands = new Dictionary<char, ICommand>();
-            availableCommands.ForEach(cmd => _availableCommands.Add(cmd.CommandShortcut, cmd));
+            int i = 1;
+            availableCommands.ForEach(cmd => _availableCommands.Add(i++.ToString()[0], cmd));
         }
 
         /// <summary>
@@ -72,9 +73,10 @@ Welcome to the SQL Fileizer!
             Console.WriteLine();
             Console.WriteLine("Available commands:");
             Console.WriteLine();
-            foreach (ICommand command in _availableCommands.Values)
+            foreach (char key in _availableCommands.Keys)
             {
-                Console.WriteLine($"{command.CommandShortcut}) {command.Description}");
+                var command = _availableCommands[key];
+                Console.WriteLine($"{key}) {command.Description}");
             }
         }
 

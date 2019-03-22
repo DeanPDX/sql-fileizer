@@ -5,7 +5,7 @@ using SqlFileizer.Data;
 
 namespace SqlFileizer.Commands
 {
-    public class GenerateFileFromProcsCommand : ICommand
+    public class GenerateFilesFromProcsCommand : ICommand
     {
         /// <summary>
         /// A format string for drop if exists logic. First arg should be schema, second should be proc name.
@@ -18,11 +18,9 @@ END
 go
 
 ";
-        public string CommandName => "generate";
+        public string CommandName => "generateProcs";
 
-        public char CommandShortcut => '2';
-
-        public string Description => "Interactively generate sql files from stored procs";
+        public string Description => "Generate sql files from stored procs (you will be asked for connection string)";
 
         public string[] ArgDefinitions => new string[] 
         { 

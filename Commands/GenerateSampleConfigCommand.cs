@@ -35,7 +35,7 @@ namespace SqlFileizer.Commands
             File.WriteAllText(Path.Combine(currentDirectory, fileName), configText);
 
             Console.WriteLine();
-            Console.WriteLine($"{fileName} created in {Environment.CurrentDirectory}");
+            Console.WriteLine($"{fileName} created in {currentDirectory}");
         }
     }
 }
